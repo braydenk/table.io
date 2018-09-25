@@ -1,4 +1,4 @@
-package com.mad.mizen;
+package com.mad.mizen.data.models;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
