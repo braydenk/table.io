@@ -25,6 +25,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation 'com.android.support:support-v4:27.1.1'
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
 
 

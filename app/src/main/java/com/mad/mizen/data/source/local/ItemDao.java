@@ -1,4 +1,4 @@
-package com.mad.mizen.data.local;
+package com.mad.mizen.data.source.local;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
