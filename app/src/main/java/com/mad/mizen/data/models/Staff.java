@@ -4,6 +4,7 @@ package com.mad.mizen.data.models;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+// TODO: List of tableIds needed, perhaps a type converter?
 @Entity
 public class Staff {
 
@@ -11,9 +12,9 @@ public class Staff {
     private int staffId;
 
     private String name;
-    private int[] tableIds;
+    private int tableIds;
 
-    public Staff(int staffId, String name, int[] tableIds) {
+    public Staff(int staffId, String name, int tableIds) {
         this.staffId = staffId;
         this.name = name;
         this.tableIds = tableIds;
@@ -27,7 +28,7 @@ public class Staff {
         return name;
     }
 
-    public int[] getTableIds() {
+    public int getTableIds() {
         return tableIds;
     }
 
@@ -39,7 +40,7 @@ public class Staff {
         this.staffId = staffId;
     }
 
-    public void setTableIds(int[] tableIds) {
+    public void setTableIds(int tableIds) {
         this.tableIds = tableIds;
     }
 }

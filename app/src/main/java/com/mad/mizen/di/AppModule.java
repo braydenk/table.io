@@ -2,6 +2,7 @@ package com.mad.mizen.di;
 
 import android.app.Application;
 import android.arch.persistence.room.Room;
+import com.mad.mizen.data.source.ItemRepository;
 import com.mad.mizen.data.source.local.AppDatabase;
 import com.mad.mizen.data.source.local.ItemDao;
 import dagger.Module;
@@ -39,7 +40,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    CompanyRepository provideUserRepository(ServerInterface serverInterface, CompanyDao companyDao, Executor executor) {
-        return new CompanyRepository(serverInterface, companyDao, executor);
+    ItemRepository provideUserRepository(ItemDao itemDao, Executor executor) {
+        return new ItemRepository(itemDao, executor);
     }
 }

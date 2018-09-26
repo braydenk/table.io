@@ -4,6 +4,8 @@ import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+
+// TODO: Figure out how to use array/list
 @Entity
 public class Order {
 
@@ -12,11 +14,11 @@ public class Order {
 
     private int tableId;
     @Embedded
-    private Item[] items;
+    private Item items;
     private int status;
     private double totalPrice;
 
-    public Order(int orderId, Item[] items, int status, double totalPrice) {
+    public Order(int orderId, Item items, int status, double totalPrice) {
         this.orderId = orderId;
         this.items = items;
         this.status = status;
@@ -39,7 +41,7 @@ public class Order {
         return status;
     }
 
-    public Item[] getItems() {
+    public Item getItems() {
         return items;
     }
 
@@ -47,7 +49,7 @@ public class Order {
         this.tableId = tableId;
     }
 
-    public void setItems(Item[] items) {
+    public void setItems(Item items) {
         this.items = items;
     }
 

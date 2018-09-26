@@ -22,5 +22,5 @@ public interface AppComponent {
         AppComponent build();
     }
 
-    void inject(App app);
+    void inject(Application app);
 }

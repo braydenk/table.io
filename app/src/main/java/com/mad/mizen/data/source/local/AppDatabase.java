@@ -10,7 +10,7 @@ import com.mad.mizen.data.models.Order;
 import com.mad.mizen.data.models.Staff;
 import com.mad.mizen.data.models.Table;
 
-@Database(entities = {Item.class, Order.class, Staff.class, Table.class}, version = 1, exportSchema = false)
+@Database(entities = {Item.class, Order.class, Staff.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;

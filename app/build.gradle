@@ -28,6 +28,9 @@ dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
 
+    // LiveData
+    implementation 'android.arch.lifecycle:livedata:1.1.1'
+
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
