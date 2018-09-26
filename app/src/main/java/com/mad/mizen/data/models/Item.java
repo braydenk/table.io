@@ -11,11 +11,11 @@ public class Item {
 
     private String name;
     private String description;
-    private int category;
+    private String category;
     private int quantity;
     private double price;
 
-    public Item(int itemId, String name, String description, int category, int quantity, double price) {
+    public Item(int itemId, String name, String description, String category, int quantity, double price) {
         this.itemId = itemId;
         this.name = name;
         this.description = description;
@@ -40,7 +40,7 @@ public class Item {
         return description;
     }
 
-    public int getCategory() {
+    public String getCategory() {
         return category;
     }
 
@@ -60,7 +60,7 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 

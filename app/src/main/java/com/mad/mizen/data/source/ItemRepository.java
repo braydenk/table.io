@@ -3,6 +3,7 @@ package com.mad.mizen.data.source;
 import android.arch.lifecycle.LiveData;
 import com.mad.mizen.data.models.Item;
 import com.mad.mizen.data.source.local.ItemDao;
+import com.mad.mizen.data.source.remote.ItemsRemoteDataSource;
 import java.util.List;
 import java.util.concurrent.Executor;
 import javax.inject.Inject;
@@ -19,7 +20,9 @@ public class ItemRepository {
         this.executor = executor;
     }
 
-    public LiveData<List<Item>> getCompanies() {
+    public LiveData<List<Item>> getItems() {
+        itemDao.saveItems(ItemsRemoteDataSource.populateData());
+
         return itemDao.loadAllItems();
     }
 }

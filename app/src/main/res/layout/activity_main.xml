@@ -12,36 +12,10 @@
     android:id="@+id/menu_fragment"
     android:layout_width="659dp"
     android:layout_height="387dp"
-    android:layout_marginEnd="8dp"
     android:name="com.mad.mizen.MenuFragment"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tabLayout"/>
-  <android.support.design.widget.TabLayout
-    android:id="@+id/tabLayout"
-    android:layout_width="657dp"
-    android:layout_height="80dp"
-    app:layout_constraintBottom_toTopOf="@+id/menu_fragment"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0">
-
-    <android.support.design.widget.TabItem
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Left"/>
-    <android.support.design.widget.TabItem
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Center"/>
-    <android.support.design.widget.TabItem
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Right"/>
-  </android.support.design.widget.TabLayout>
+    app:layout_constraintStart_toStartOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
