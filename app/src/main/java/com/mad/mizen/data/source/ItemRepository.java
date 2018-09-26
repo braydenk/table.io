@@ -7,8 +7,9 @@ import com.mad.mizen.data.source.remote.ItemsRemoteDataSource;
 import java.util.List;
 import java.util.concurrent.Executor;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
-
+@Singleton
 public class ItemRepository {
 
     private final ItemDao itemDao;
@@ -21,8 +22,14 @@ public class ItemRepository {
     }
 
     public LiveData<List<Item>> getItems() {
-        itemDao.saveItems(ItemsRemoteDataSource.populateData());
+        refreshItems();
 
         return itemDao.loadAllItems();
+    }
+
+    private void refreshItems() {
+        executor.execute(() -> {
+            itemDao.saveItems(ItemsRemoteDataSource.populateData());
+        });
     }
 }
