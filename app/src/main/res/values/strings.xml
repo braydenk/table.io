@@ -1,11 +1,16 @@
 <resources>
   <string name="app_name">Mizen</string>
 
+  <string name="default_text">default</string>
+
   <!-- Tab Layout -->
   <string name="entree">Entree</string>
   <string name="sides">Sides</string>
   <string name="main">Main</string>
   <string name="desserts">Desserts</string>
   <string name="drinks">Drinks</string>
+
+  <!-- Item Row -->
+  <string name="add">Add</string>
 
 </resources>

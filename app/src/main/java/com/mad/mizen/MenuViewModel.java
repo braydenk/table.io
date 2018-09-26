@@ -1,5 +1,6 @@
 package com.mad.mizen;
 
+
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 import com.mad.mizen.data.models.Item;
@@ -9,8 +10,8 @@ import javax.inject.Inject;
 
 public class MenuViewModel extends ViewModel {
 
-    LiveData<List<Item>> items;
-    ItemRepository itemRepo;
+    private LiveData<List<Item>> items;
+    private ItemRepository itemRepo;
 
     @Inject
     public MenuViewModel(ItemRepository itemRepo) {

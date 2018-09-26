@@ -10,9 +10,9 @@ public class ItemsRemoteDataSource {
         List<Item> items = new ArrayList<>();
 
         items.add(new Item(0, "Burrata", "burrata cheese, roasted capsicum & caper berries", "entree", 0, 16));
-        items.add(new Item(0, "Burrata", "burrata cheese, roasted capsicum & caper berries", "entree", 0, 16));
-        items.add(new Item(0, "Burrata", "burrata cheese, roasted capsicum & caper berries", "entree", 0, 16));
-        items.add(new Item(0, "Burrata", "burrata cheese, roasted capsicum & caper berries", "entree", 0, 16));
+        items.add(new Item(1, "Burrata", "burrata cheese, roasted capsicum & caper berries", "entree", 0, 16));
+        items.add(new Item(2, "Burrata", "burrata cheese, roasted capsicum & caper berries", "entree", 0, 16));
+        items.add(new Item(3, "Burrata", "burrata cheese, roasted capsicum & caper berries", "entree", 0, 16));
 
         return items;
     }

@@ -28,8 +28,6 @@ public class ItemRepository {
     }
 
     private void refreshItems() {
-        executor.execute(() -> {
-            itemDao.saveItems(ItemsRemoteDataSource.populateData());
-        });
+        executor.execute(() -> itemDao.saveItems(ItemsRemoteDataSource.populateData()));
     }
 }

@@ -38,11 +38,11 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
 
         String itemName = item.getName();
         String itemDescription = item.getDescription();
-        double itemPrice = item.getPrice();
+        String itemPrice = "$" + Double.toString(item.getPrice());
 
         holder.name.setText(itemName);
-        holder.name.setText(itemDescription);
-        holder.name.setText(Double.toString(itemPrice));
+        holder.description.setText(itemDescription);
+        holder.price.setText(itemPrice);
     }
 
     @Override
