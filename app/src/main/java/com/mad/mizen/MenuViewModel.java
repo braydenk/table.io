@@ -14,7 +14,7 @@ public class MenuViewModel extends ViewModel {
     private ItemRepository itemRepo;
 
     @Inject
-    public MenuViewModel(ItemRepository itemRepo) {
+    MenuViewModel(ItemRepository itemRepo) {
         this.itemRepo = itemRepo;
     }
 

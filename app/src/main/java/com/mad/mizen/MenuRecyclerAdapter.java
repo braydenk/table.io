@@ -17,7 +17,7 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
     private List<Item> items;
 
 
-    public MenuRecyclerAdapter(Context context, List<Item> items) {
+    MenuRecyclerAdapter(Context context, List<Item> items) {
         this.context = context;
         this.items = items;
     }
@@ -55,7 +55,7 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView description;
         private TextView price;
