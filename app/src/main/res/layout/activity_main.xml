@@ -10,13 +10,14 @@
 
   <fragment
     android:id="@+id/menu_fragment"
-    android:layout_width="659dp"
-    android:layout_height="387dp"
+    android:layout_width="717dp"
+    android:layout_height="391dp"
     android:name="com.mad.mizen.MenuFragment"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0"/>
 
 </android.support.constraint.ConstraintLayout>

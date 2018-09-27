@@ -1,0 +1,177 @@
+[
+  {
+    "id": 0,
+    "name": "Burrata",
+    "description": "burrata cheese, roasted capsicum & caper berries",
+    "category": "entree",
+    "price": 16
+  },
+  {
+    "id": 1,
+    "name": "Topinambur",
+    "description": "jerusalem artichoke, parsnip & goats curd",
+    "category": "entree",
+    "price": 17
+  },
+  {
+    "id": 2,
+    "name": "Salumi",
+    "description": "daily chef's selection 100g",
+    "category": "entree",
+    "price": 21
+  },
+  {
+    "id": 3,
+    "name": "Lingua",
+    "description": "grilled ox tongue, balsamic vinegar & pink peppercorns",
+    "category": "entree",
+    "price": 16
+  },
+  {
+    "id": 4,
+    "name": "Calamari",
+    "description": "cracked faro, saffron & pickled mussels",
+    "category": "entree",
+    "price": 19
+  },
+  {
+    "id": 5,
+    "name": "Crudo",
+    "description": "swordfish, mandarin, horseradish & oyster",
+    "category": "entree",
+    "price": 18
+  },
+  {
+    "id": 6,
+    "name": "Fegato",
+    "description": "pan-fried calves liver & balsamic sauce",
+    "category": "entree",
+    "price": 18
+  },
+  {
+    "id": 7,
+    "name": "Riso carnaroli",
+    "description": "W.A. scampi, fennel, garlic flower",
+    "category": "main",
+    "price": 46
+  },
+  {
+    "id": 8,
+    "name": "Riso vialone nano",
+    "description": "basil pesto, smoked ricotta & pine nuts risotto",
+    "category": "main",
+    "price": 23
+  },
+  {
+    "id": 9,
+    "name": "Gnocchi di patate",
+    "description": "braised duck, porcini mushroom & pecorino pepata",
+    "category": "main",
+    "price": 32
+  },
+  {
+    "id": 10,
+    "name": "Tortelloni",
+    "description": "spiced pumpkin, chestnut & sage",
+    "category": "main",
+    "price": 27
+  },
+  {
+    "id": 11,
+    "name": "Tagliolini al nero",
+    "description": "squid ink tagliolini, squid & bottarga",
+    "category": "main",
+    "price": 28
+  },
+  {
+    "id": 12,
+    "name": "Spaghetti",
+    "description": "saffron spaghettini, spanner crab, confit tomato & zucchini",
+    "category": "main",
+    "price": 38
+  },
+  {
+    "id": 13,
+    "name": "Casarecce",
+    "description": "pork sausage, white wine & radicchio",
+    "category": "main",
+    "price": 34
+  },
+  {
+    "id": 14,
+    "name": "Rigatoni",
+    "description": "cauliflower, fior d’arancio & walnuts",
+    "category": "main",
+    "price": 26
+  },
+  {
+    "id": 15,
+    "name": "Pappardelle",
+    "description": "raspberry & juniper pappardelle, wild boar bolognese",
+    "category": "main",
+    "price": 34
+  },
+  {
+    "id": 16,
+    "name": "Pesce",
+    "description": "market fish, black rice, leeks & sorrel",
+    "category": "main",
+    "price": 36
+  },
+  {
+    "id": 17,
+    "name": "Manzo",
+    "description": "roasted wagyu rump, green beans & macadamia",
+    "category": "main",
+    "price": 38
+  },
+  {
+    "id": 18,
+    "name": "Insalata di finocchio",
+    "description": "fennel, cos lettuce & black sesame",
+    "category": "side",
+    "price": 11
+  },
+  {
+    "id": 19,
+    "name": "Broccolini",
+    "description": "almond & parmesan crumb",
+    "category": "side",
+    "price": 12
+  },
+  {
+    "id": 20,
+    "name": "Polenta fritta",
+    "description": "crunchy rosemary chips",
+    "category": "side",
+    "price": 9
+  },
+  {
+    "id": 21,
+    "name": "Tipomisù",
+    "description": "chocolate, coffee & mascarpone",
+    "category": "dessert",
+    "price": 14
+  },
+  {
+    "id": 22,
+    "name": "Pannacotta",
+    "description": "yoghurt, rhubarb & white chocolate",
+    "category": "dessert",
+    "price": 14
+  },
+  {
+    "id": 23,
+    "name": "Torta di carote",
+    "description": "carrot cake, lemon curd & honey",
+    "category": "dessert",
+    "price": 14
+  },
+  {
+    "id": 24,
+    "name": "Formaggio",
+    "description": "cheese selection",
+    "category": "dessert",
+    "price": 16
+  }
+]

@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 public class MenuFragment extends Fragment {
+
+    private static final String TAG = MenuFragment.class.getSimpleName();
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
