@@ -1,12 +1,15 @@
 package com.mad.mizen;
 
+import android.app.ActionBar.LayoutParams;
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import com.mad.mizen.data.models.Item;
 import java.util.List;
@@ -15,6 +18,8 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
 
     private Context context;
     private List<Item> items;
+
+    private PopupWindow popupWindow;
 
 
     MenuRecyclerAdapter(Context context, List<Item> items) {
@@ -43,6 +48,10 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
         holder.name.setText(itemName);
         holder.description.setText(itemDescription);
         holder.price.setText(itemPrice);
+
+        holder.itemView.setOnClickListener((View view) -> {
+            // TODO: Some click handling.
+        });
     }
 
     @Override
