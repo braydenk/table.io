@@ -1,4 +1,4 @@
-package com.mad.mizen;
+package com.mad.mizen.menu;
 
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
 import dagger.android.support.AndroidSupportInjection;
 import java.util.ArrayList;

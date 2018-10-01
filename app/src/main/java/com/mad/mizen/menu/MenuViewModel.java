@@ -1,4 +1,4 @@
-package com.mad.mizen;
+package com.mad.mizen.menu;
 
 
 import android.arch.lifecycle.LiveData;

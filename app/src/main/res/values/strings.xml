@@ -13,4 +13,8 @@
   <!-- Item Row -->
   <string name="add">Add</string>
 
+
+  <!-- Order View -->
+  <string name="your_order">Your Order</string>
+
 </resources>
