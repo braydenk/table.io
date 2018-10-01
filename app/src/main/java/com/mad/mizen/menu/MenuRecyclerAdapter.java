@@ -17,7 +17,6 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
 
     private Context context;
     private List<Item> items;
-
     private PopupWindow popupWindow;
 
 
@@ -42,6 +41,8 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
 
         String itemName = item.getName();
         String itemDescription = item.getDescription();
+
+        // TODO: Better formatting for currency.
         String itemPrice = "$" + Double.toString(item.getPrice());
 
         holder.name.setText(itemName);

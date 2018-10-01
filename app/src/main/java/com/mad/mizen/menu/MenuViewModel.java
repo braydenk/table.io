@@ -2,6 +2,7 @@ package com.mad.mizen.menu;
 
 
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModel;
 import com.mad.mizen.data.models.Item;
 import com.mad.mizen.data.source.ItemRepository;
@@ -28,5 +29,9 @@ public class MenuViewModel extends ViewModel {
 
     public LiveData<List<Item>> getItems() {
         return items;
+    }
+
+    public void filterCategory(String category) {
+
     }
 }

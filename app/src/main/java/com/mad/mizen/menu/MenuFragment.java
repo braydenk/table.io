@@ -6,6 +6,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.design.widget.TabLayout.OnTabSelectedListener;
+import android.support.design.widget.TabLayout.Tab;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +30,7 @@ public class MenuFragment extends Fragment {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
+    MenuViewModel viewModel;
 
     private RecyclerView recyclerView;
 
@@ -38,6 +43,37 @@ public class MenuFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
         recyclerView = view.findViewById(R.id.recycler_view);
+
+        TabLayout tabLayout = view.findViewById(R.id.tab_layout);
+
+        tabLayout.addOnTabSelectedListener(new OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(Tab tab) {
+                // TODO: Send info to fragment.
+
+                if (tab.getText().equals("Entree")) {
+                    viewModel.filterCategory("entree");
+                } else if (tab.getText().equals("Sides")) {
+                    viewModel.filterCategory("sides");
+                } else if (tab.getText().equals("Main")) {
+                    viewModel.filterCategory("main");
+                } else if (tab.getText().equals("Desserts")) {
+                    viewModel.filterCategory("dessert");
+                } else if (tab.getText().equals("Drinks")) {
+                    viewModel.filterCategory("drinks");
+                }
+            }
+
+            @Override
+            public void onTabUnselected(Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(Tab tab) {
+
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;
@@ -56,7 +92,7 @@ public class MenuFragment extends Fragment {
     }
 
     private void configureViewModel() {
-        MenuViewModel viewModel = ViewModelProviders.of(this, viewModelFactory)
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(MenuViewModel.class);
         viewModel.init();
         viewModel.getItems().observe(this, this::updateUI);
@@ -79,6 +115,9 @@ public class MenuFragment extends Fragment {
 
         adapter.addItems(items);
     }
+
+
+
 
     @Override
     public void onAttach(Context context) {
