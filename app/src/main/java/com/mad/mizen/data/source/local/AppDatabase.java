@@ -7,20 +7,22 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import com.mad.mizen.data.models.Item;
 import com.mad.mizen.data.models.Order;
-import com.mad.mizen.data.models.Staff;
-import com.mad.mizen.data.models.Table;
 
-@Database(entities = {Item.class}, version = 1, exportSchema = false)
+// TODO: Handle migrations better.
+@Database(entities = {Item.class, Order.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
 
     public abstract ItemDao itemDao();
+    public abstract OrderDao orderDao();
 
+    // TODO: This is not being used. Can it be removed due to DI modules?
     public static AppDatabase getAppDatabase(Context context) {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                     AppDatabase.class, "App.db")
+                    .fallbackToDestructiveMigration()
                     .build();
         }
 

@@ -5,16 +5,11 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.PopupWindow;
 import android.widget.TextView;
-import com.mad.mizen.MainActivity;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
 import java.util.List;
@@ -25,17 +20,18 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
     private static final String TAG = MenuRecyclerAdapter.class.getSimpleName();
 
     private Context context;
+    private MenuFragment menuFragment;
     private List<Item> items;
 
-    MenuRecyclerAdapter(Context context, List<Item> items) {
+    MenuRecyclerAdapter(Context context, List<Item> items, MenuFragment menuFragment) {
         this.context = context;
         this.items = items;
+        this.menuFragment = menuFragment;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
-            int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row, parent, false);
 
         return new ViewHolder(view);
@@ -70,6 +66,12 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
 
             popupName.setText(itemName);
             popupDescription.setText(itemDescription);
+
+            Button dialogAddButton = dialog.findViewById(R.id.add_popup_btn);
+            dialogAddButton.setOnClickListener((View dialogView) -> {
+                menuFragment.addItemToOrder(item);
+                dialog.dismiss();
+            });
 
             dialog.show();
         });

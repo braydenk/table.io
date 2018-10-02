@@ -32,4 +32,8 @@ public class MenuViewModel extends ViewModel {
     public LiveData<List<Item>> getItems() {
         return this.items;
     }
+
+    public void addItemToOrder(Item item) {
+        itemRepo.addItemToOrder(item);
+    }
 }

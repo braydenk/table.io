@@ -3,6 +3,7 @@ package com.mad.mizen.data.source;
 import android.arch.lifecycle.LiveData;
 import com.mad.mizen.data.models.Item;
 import com.mad.mizen.data.source.local.ItemDao;
+import com.mad.mizen.data.source.local.OrderDao;
 import com.mad.mizen.data.source.remote.ItemsRemoteDataSource;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -16,10 +17,12 @@ public class ItemRepository {
     private static final String TAG = ItemRepository.class.getSimpleName();
 
     private final ItemDao itemDao;
+    private final OrderDao orderDao;
     private final Executor executor;
 
     @Inject
-    public ItemRepository(ItemDao itemDao, Executor executor) {
+    public ItemRepository(ItemDao itemDao, OrderDao orderDao, Executor executor) {
+        this.orderDao = orderDao;
         this.itemDao = itemDao;
         this.executor = executor;
     }
@@ -30,9 +33,17 @@ public class ItemRepository {
         return itemDao.loadAllItems();
     }
 
-    private void refreshItems() {
-        ItemsRemoteDataSource itemsRemoteDataSource = new ItemsRemoteDataSource();
+    public LiveData<List<Item>> getOrder() {
+        return orderDao.loadOrder();
+    }
 
+    public void addItemToOrder(Item item) {
+        executor.execute(() -> orderDao.saveItemToOrder(item));
+    }
+
+    private void refreshItems() {
+        // TODO: Change to a static call.
+        ItemsRemoteDataSource itemsRemoteDataSource = new ItemsRemoteDataSource();
         executor.execute(() -> itemDao.saveItems(itemsRemoteDataSource.populateData()));
     }
 }

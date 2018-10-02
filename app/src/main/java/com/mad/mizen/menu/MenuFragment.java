@@ -12,7 +12,6 @@ import android.support.design.widget.TabLayout.Tab;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +58,7 @@ public class MenuFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        adapter = new MenuRecyclerAdapter(getContext(), new ArrayList<>());
+        adapter = new MenuRecyclerAdapter(getContext(), new ArrayList<>(), MenuFragment.this);
 
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -151,5 +150,9 @@ public class MenuFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    public void addItemToOrder(Item item) {
+        viewModel.addItemToOrder(item);
     }
 }

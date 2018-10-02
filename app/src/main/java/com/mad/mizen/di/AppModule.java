@@ -5,6 +5,7 @@ import android.arch.persistence.room.Room;
 import com.mad.mizen.data.source.ItemRepository;
 import com.mad.mizen.data.source.local.AppDatabase;
 import com.mad.mizen.data.source.local.ItemDao;
+import com.mad.mizen.data.source.local.OrderDao;
 import dagger.Module;
 import dagger.Provides;
 import dagger.android.AndroidInjectionModule;
@@ -16,12 +17,12 @@ import javax.inject.Singleton;
 public class AppModule {
 
     // --- DATABASE INJECTION ---
-
     @Provides
     @Singleton
     AppDatabase provideDatabase(Application application) {
         return Room.databaseBuilder(application,
                 AppDatabase.class, "item.db")
+                .fallbackToDestructiveMigration()
                 .build();
     }
 
@@ -29,8 +30,11 @@ public class AppModule {
     @Singleton
     ItemDao provideItemDao(AppDatabase database) { return database.itemDao(); }
 
-    // --- REPOSITORY INJECTION ---
+    @Provides
+    @Singleton
+    OrderDao provideOrderDao(AppDatabase database) { return database.orderDao(); }
 
+    // --- REPOSITORY INJECTION ---
     @Provides
     Executor provideExecutor() {
         return Executors.newSingleThreadExecutor();
@@ -38,7 +42,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    ItemRepository provideUserRepository(ItemDao itemDao, Executor executor) {
-        return new ItemRepository(itemDao, executor);
+    ItemRepository provideUserRepository(ItemDao itemDao, OrderDao orderDao, Executor executor) {
+        return new ItemRepository(itemDao, orderDao, executor);
     }
 }

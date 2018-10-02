@@ -9,11 +9,11 @@ import com.mad.mizen.data.models.Item;
 import java.util.List;
 
 @Dao
-public interface ItemDao {
+public interface OrderDao {
 
     @Query("SELECT * FROM item")
-    LiveData<List<Item>> loadAllItems();
+    LiveData<List<Item>> loadOrder();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void saveItems(List<Item> items);
+    void saveItemToOrder(Item item);
 }
