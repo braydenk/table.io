@@ -26,5 +26,8 @@
   <string name="close">close</string>
   <string name="note">Note:</string>
   <string name="quantity">Quantity:</string>
+  <string name="plus_sign">+</string>
+  <string name="minus_sign">-</string>
+  <string name="zero">0</string>
 
 </resources>
