@@ -22,6 +22,7 @@
   <string name="your_order">Your Order</string>
   <string name="order">Order</string>
   <string name="pay_now">pay now</string>
+  <string name="total">Total: </string>
 
   <!-- Popup View -->
   <string name="close">close</string>

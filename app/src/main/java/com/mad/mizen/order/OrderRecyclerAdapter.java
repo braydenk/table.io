@@ -42,6 +42,7 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
         // TODO: Change to String format
         holder.itemQuantity.setText(Integer.toString(item.getQuantity()));
         holder.itemName.setText(item.getName());
+        holder.itemPrice.setText(Double.toString(item.getPrice()));
 
     }
 
@@ -63,12 +64,14 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
         private TextView itemQuantity;
         private TextView itemName;
+        private TextView itemPrice;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             itemQuantity = itemView.findViewById(R.id.order_item_quantity);
             itemName = itemView.findViewById(R.id.order_item_name);
+            itemPrice = itemView.findViewById(R.id.order_item_price);
         }
     }
 }

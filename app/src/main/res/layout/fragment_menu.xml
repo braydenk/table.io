@@ -2,30 +2,20 @@
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
-  <android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:background="@color/white"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tab_layout"/>
-
   <android.support.design.widget.TabLayout
     android:id="@+id/tab_layout"
-    android:layout_width="653dp"
+    android:layout_width="0dp"
     android:layout_height="49dp"
-    android:layout_marginBottom="8dp"
-    app:layout_constraintBottom_toTopOf="@+id/recycler_view"
     app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:tabIndicatorColor="@color/highlights"
-    app:tabGravity="fill">
+    app:tabGravity="fill"
+    app:tabIndicatorColor="@color/highlights">
 
     <android.support.design.widget.TabItem
       android:layout_width="wrap_content"
@@ -53,5 +43,15 @@
       android:text="@string/drinks"/>
 
   </android.support.design.widget.TabLayout>
+  <android.support.v7.widget.RecyclerView
+    android:id="@+id/recycler_view"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+    />
 
 </android.support.constraint.ConstraintLayout>

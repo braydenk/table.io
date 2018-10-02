@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
@@ -41,17 +42,15 @@
 
       <android.support.v7.widget.RecyclerView
         android:id="@+id/order_recycler_view"
-        android:layout_width="491dp"
-        android:layout_height="385dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="0dp"
+        android:layout_height="266dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/order_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/order_text"
-        app:layout_constraintVertical_bias="0.142"/>
+        app:layout_constraintVertical_bias="0.192"/>
 
       <Button
         android:id="@+id/order_button"
@@ -67,6 +66,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/order_text"
         app:layout_constraintVertical_bias="1.0"/>
+      <TextView
+        android:id="@+id/total_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/total"
+        app:layout_constraintBottom_toTopOf="@+id/order_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_recycler_view"/>
+      <TextView
+        android:id="@+id/total_price"
+        android:layout_width="61dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/default_text"
+        app:layout_constraintBottom_toTopOf="@+id/order_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.001"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/order_recycler_view"
+        app:layout_constraintVertical_bias="0.506"/>
 
 
     </android.support.constraint.ConstraintLayout>

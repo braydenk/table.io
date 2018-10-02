@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
 import com.mad.mizen.pay.PaymentActivity;
@@ -36,6 +37,7 @@ public class OrderFragment extends Fragment {
     OrderRecyclerAdapter adapter;
 
     Button orderButton;
+    TextView totalPriceTextView;
 
     public OrderFragment() {}
 
@@ -48,6 +50,8 @@ public class OrderFragment extends Fragment {
         recyclerView = view.findViewById(R.id.order_recycler_view);
 
         orderButton = view.findViewById(R.id.order_button);
+
+        totalPriceTextView = view.findViewById(R.id.total_price);
 
         // Inflate the layout for this fragment
         return view;
@@ -92,6 +96,13 @@ public class OrderFragment extends Fragment {
     private void updateOrder(List<Item> orderedItems) {
         if (orderedItems != null) {
             adapter.updateOrder(orderedItems);
+
+            int total = 0;
+            for (Item i : orderedItems) {
+                total += i.getPrice() * i.getQuantity();
+            }
+
+            totalPriceTextView.setText(Double.toString(total));
         }
     }
 

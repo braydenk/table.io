@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapter.ViewHolder> {
 
@@ -45,8 +46,8 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
         String itemName = item.getName();
         String itemDescription = item.getDescription();
 
-        // TODO: Better formatting for currency.
-        String itemPrice = "$" + Double.toString(item.getPrice());
+        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+        String itemPrice = format.format(item.getPrice());
 
         holder.name.setText(itemName);
         holder.description.setText(itemDescription);
@@ -77,13 +78,13 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
             Button dialogIncreaseQuantityButton = dialog.findViewById(R.id.add_btn);
             dialogIncreaseQuantityButton.setOnClickListener((View dialogView) -> {
                 item.incrementQuantity();
-                currentAmount.setText(Integer.toString(item.getQuantity()));
+                currentAmount.setText(String.format(Locale.US, "%d", item.getQuantity()));
             });
 
             Button dialogDecreaseQuantityButton = dialog.findViewById(R.id.minus_btn);
             dialogDecreaseQuantityButton.setOnClickListener((View dialogView) -> {
                 item.decrementQuantity();
-                currentAmount.setText(Integer.toString(item.getQuantity()));
+                currentAmount.setText(String.format(Locale.US, "%d", item.getQuantity()));
             });
 
             dialog.show();
