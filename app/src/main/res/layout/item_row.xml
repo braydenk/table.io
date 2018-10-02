@@ -25,6 +25,7 @@
 
   <TextView
     android:id="@+id/description"
+    android:textStyle="italic"
     android:layout_width="450dp"
     android:layout_height="wrap_content"
     android:layout_marginBottom="16dp"

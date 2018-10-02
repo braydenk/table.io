@@ -10,8 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
-import com.mad.mizen.data.models.Order;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdapter.ViewHolder> {
 
@@ -39,10 +40,13 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
         Item item = orderedItems.get(position);
 
-        // TODO: Change to String format
-        holder.itemQuantity.setText(Integer.toString(item.getQuantity()));
+        holder.itemQuantity.setText(String.format(Locale.US, "x%d", item.getQuantity()));
         holder.itemName.setText(item.getName());
-        holder.itemPrice.setText(Double.toString(item.getPrice()));
+
+        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+        String itemPrice = format.format(item.getPrice());
+
+        holder.itemPrice.setText(itemPrice);
 
     }
 
