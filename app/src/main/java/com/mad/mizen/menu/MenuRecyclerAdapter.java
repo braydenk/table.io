@@ -1,5 +1,6 @@
 package com.mad.mizen.menu;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -58,19 +59,19 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
         holder.addBtn.setOnClickListener((View view) -> {
             Log.d(TAG, "onBindViewHolder: clicked");
 
-            View popupView = LayoutInflater.from(context).inflate(R.layout.item_popup, null);
-            PopupWindow popupWindow = new PopupWindow(popupView, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
-            Button btn = popupView.findViewById(R.id.close_popup_btn);
+            Dialog dialog = new Dialog(context);
+            dialog.setContentView(R.layout.item_popup);
 
-            TextView popupName = popupView.findViewById(R.id.item_name);
-            TextView popupDescription = popupView.findViewById(R.id.item_description);
+            Button dialogButton = dialog.findViewById(R.id.close_popup_btn);
+            dialogButton.setOnClickListener((View dialogView) -> dialog.dismiss());
+
+            TextView popupName = dialog.findViewById(R.id.item_name);
+            TextView popupDescription = dialog.findViewById(R.id.item_description);
 
             popupName.setText(itemName);
             popupDescription.setText(itemDescription);
 
-            btn.setOnClickListener((View view1) -> popupWindow.dismiss());
-
-            popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
+            dialog.show();
         });
     }
 
