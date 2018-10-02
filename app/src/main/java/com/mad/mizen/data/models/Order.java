@@ -2,7 +2,10 @@ package com.mad.mizen.data.models;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.Relation;
+import java.util.List;
 
 
 // TODO: Figure out how to use array/list
@@ -13,14 +16,15 @@ public class Order {
     private int orderId;
 
     private int tableId;
-    @Embedded
-    private Item items;
+
+    @Ignore
+    private List<Item> items;
+
     private int status;
     private double totalPrice;
 
-    public Order(int orderId, Item items, int status, double totalPrice) {
+    public Order(int orderId, int status, double totalPrice) {
         this.orderId = orderId;
-        this.items = items;
         this.status = status;
         this.totalPrice = totalPrice;
     }
@@ -41,7 +45,7 @@ public class Order {
         return status;
     }
 
-    public Item getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
@@ -49,7 +53,7 @@ public class Order {
         this.tableId = tableId;
     }
 
-    public void setItems(Item items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 

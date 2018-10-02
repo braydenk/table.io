@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.mad.mizen.R;
+import com.mad.mizen.data.models.Item;
 import com.mad.mizen.data.models.Order;
 
 public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdapter.ViewHolder> {
@@ -34,10 +35,12 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull OrderRecyclerAdapter.ViewHolder holder, int position) {
-        holder.itemQuantity.setText(order.getItems().getQuantity());
-        holder.itemName.setText(order.getItems().getName());
+        Item item = order.getItems().get(position);
 
-        Log.d(TAG, "onBindViewHolder: " + order.getItems().getName());
+        holder.itemQuantity.setText(item.getQuantity());
+        holder.itemName.setText(item.getName());
+
+        Log.d(TAG, "onBindViewHolder: " + item.getName());
     }
 
     @Override

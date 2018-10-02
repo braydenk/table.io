@@ -6,6 +6,7 @@ import com.mad.mizen.data.models.Order;
 import com.mad.mizen.data.source.local.ItemDao;
 import com.mad.mizen.data.source.local.OrderDao;
 import com.mad.mizen.data.source.remote.ItemsRemoteDataSource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
 import javax.inject.Inject;
@@ -39,7 +40,10 @@ public class ItemRepository {
     }
 
     public void addItemToOrder(Item item) {
-        Order order = new Order(0, item, 0, 16);
+        List<Item> items = new ArrayList<>();
+        items.add(item);
+
+        Order order = new Order(0, 0, 16);
         executor.execute(() -> orderDao.createOrder(order));
     }
 
