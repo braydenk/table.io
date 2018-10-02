@@ -32,37 +32,68 @@
     app:layout_constraintVertical_bias="0.0">
 
 
-
     <android.support.constraint.ConstraintLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent">
+      android:layout_height="match_parent"
+      android:focusable="true"
+      android:focusableInTouchMode="true">
 
       <com.stripe.android.view.CardInputWidget
         android:id="@+id/card_input_widget"
-        android:layout_width="355dp"
-        android:layout_height="386dp"
+        android:layout_width="824dp"
+        android:layout_height="177dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:gravity="top|fill_vertical"
-        android:orientation="vertical"
-        app:cardTint="@color/colorPrimary"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-      <View
-        android:id="@+id/divider2"
-        android:layout_width="1dp"
-        android:layout_height="415dp"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.394"/>
+      <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="72dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/card_input_widget"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Enter Your Card Details"
+        app:layout_constraintBottom_toTopOf="@+id/card_input_widget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.986"/>
+      <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Payment"
+        app:layout_constraintBottom_toTopOf="@+id/card_input_widget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111"/>
+      <Button
+        android:id="@+id/button"
+        android:layout_width="183dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Pay: $200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_input_widget"/>
 
     </android.support.constraint.ConstraintLayout>
 
