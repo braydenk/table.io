@@ -73,7 +73,7 @@ public class OrderFragment extends Fragment {
 
     private void updateOrder(List<Item> orderedItems) {
         if (orderedItems != null) {
-            Log.d(TAG, "updateOrder: called" );
+            Log.d(TAG, "updateOrder: added");
             adapter.updateOrder(orderedItems);
         }
     }
