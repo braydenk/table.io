@@ -2,6 +2,7 @@ package com.mad.mizen.menu;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -73,18 +74,42 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
                 dialog.dismiss();
             });
 
+            if (item.getQuantity() == 0) {
+                dialogAddButton.setEnabled(false);
+                dialogAddButton.setBackgroundColor(Color.GRAY);
+            } else {
+                dialogAddButton.setEnabled(true);
+                dialogAddButton.setBackgroundColor(context.getResources().getColor(R.color.button));
+            }
+
             TextView currentAmount = dialog.findViewById(R.id.amount);
 
             Button dialogIncreaseQuantityButton = dialog.findViewById(R.id.add_btn);
             dialogIncreaseQuantityButton.setOnClickListener((View dialogView) -> {
                 item.incrementQuantity();
                 currentAmount.setText(String.format(Locale.US, "%d", item.getQuantity()));
+
+                if (item.getQuantity() == 0) {
+                    dialogAddButton.setEnabled(false);
+                    dialogAddButton.setBackgroundColor(Color.GRAY);
+                } else {
+                    dialogAddButton.setEnabled(true);
+                    dialogAddButton.setBackgroundColor(context.getResources().getColor(R.color.button));
+                }
             });
 
             Button dialogDecreaseQuantityButton = dialog.findViewById(R.id.minus_btn);
             dialogDecreaseQuantityButton.setOnClickListener((View dialogView) -> {
                 item.decrementQuantity();
                 currentAmount.setText(String.format(Locale.US, "%d", item.getQuantity()));
+
+                if (item.getQuantity() == 0) {
+                    dialogAddButton.setEnabled(false);
+                    dialogAddButton.setBackgroundColor(Color.GRAY);
+                } else {
+                    dialogAddButton.setEnabled(true);
+                    dialogAddButton.setBackgroundColor(context.getResources().getColor(R.color.button));
+                }
             });
 
             dialog.show();

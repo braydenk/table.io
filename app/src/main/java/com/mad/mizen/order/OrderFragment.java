@@ -19,8 +19,10 @@ import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
 import com.mad.mizen.pay.PaymentActivity;
 import dagger.android.support.AndroidSupportInjection;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import javax.inject.Inject;
 
 public class OrderFragment extends Fragment {
@@ -95,12 +97,15 @@ public class OrderFragment extends Fragment {
         if (orderedItems != null) {
             adapter.updateOrder(orderedItems);
 
-            int total = 0;
+            double total = 0;
             for (Item i : orderedItems) {
                 total += i.getPrice() * i.getQuantity();
             }
 
-            totalPriceTextView.setText(Double.toString(total));
+            NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+            String totalPriceString = format.format(total);
+
+            totalPriceTextView.setText(totalPriceString);
         }
     }
 
