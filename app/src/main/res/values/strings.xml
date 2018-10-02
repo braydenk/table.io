@@ -8,6 +8,7 @@
   <string name="staff_alert">Staff</string>
 
   <!-- Tab Layout -->
+  <string name="all">all</string>
   <string name="entree">Entree</string>
   <string name="sides">Sides</string>
   <string name="main">Main</string>

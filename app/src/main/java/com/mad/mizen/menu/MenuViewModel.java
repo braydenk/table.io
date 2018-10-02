@@ -2,7 +2,6 @@ package com.mad.mizen.menu;
 
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModel;
 import com.mad.mizen.data.models.Item;
 import com.mad.mizen.data.source.ItemRepository;
@@ -10,6 +9,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 public class MenuViewModel extends ViewModel {
+
+    @SuppressWarnings("unused")
+    private static final String TAG = MenuViewModel.class.getSimpleName();
 
     private LiveData<List<Item>> items;
     private ItemRepository itemRepo;
@@ -28,10 +30,6 @@ public class MenuViewModel extends ViewModel {
     }
 
     public LiveData<List<Item>> getItems() {
-        return items;
-    }
-
-    public void filterCategory(String category) {
-
+        return this.items;
     }
 }

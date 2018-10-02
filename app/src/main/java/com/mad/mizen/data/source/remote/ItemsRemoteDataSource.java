@@ -16,16 +16,19 @@ public class ItemsRemoteDataSource {
 
         List<Item> item = new ArrayList<>();
 
-        item.add(new Item(0, "Burrata", "burrata cheese, roasted capsicum & caper berries", "", 0,16));
-        item.add(new Item(1, "Topinambur", "jerusalem artichoke, parsnip & goats curd", "", 0,16));
-        item.add(new Item(2, "Salumi", "daily chef's selection 100g", "", 0,16));
-        item.add(new Item(3, "Lingua", "grilled ox tongue, balsamic vinegar & pink peppercorns", "", 0,16));
-        item.add(new Item(4, "Calamari", "cracked faro, saffron & pickled mussels", "", 0,16));
-        item.add(new Item(5, "Crudo", "swordfish, mandarin, horseradish & oyster", "", 0,16));
-        item.add(new Item(6, "Fegato", "pan-fried calves liver & balsamic sauce", "", 0,16));
-        item.add(new Item(7, "Riso carnaroli", "W.A. scampi, fennel, garlic flower", "", 0,16));
-        item.add(new Item(8, "Riso vialone nano", "basil pesto, smoked ricotta & pine nuts risotto", "", 0,16));
-        item.add(new Item(9, "Gnocchi di patate", "braised duck, porcini mushroom & pecorino pepata", "", 0,16));
+        item.add(new Item(0, "Burrata", "burrata cheese, roasted capsicum & caper berries", "entree", 0,16));
+        item.add(new Item(1, "Topinambur", "jerusalem artichoke, parsnip & goats curd", "entree", 0,16));
+        item.add(new Item(2, "Salumi", "daily chef's selection 100g", "entree", 0,16));
+        item.add(new Item(3, "Lingua", "grilled ox tongue, balsamic vinegar & pink peppercorns", "entree", 0,16));
+        item.add(new Item(4, "Calamari", "cracked faro, saffron & pickled mussels", "entree", 0,16));
+        item.add(new Item(5, "Crudo", "swordfish, mandarin, horseradish & oyster", "entree", 0,16));
+        item.add(new Item(6, "Fegato", "pan-fried calves liver & balsamic sauce", "entree", 0,16));
+        item.add(new Item(7, "Riso carnaroli", "W.A. scampi, fennel, garlic flower", "main", 0,16));
+        item.add(new Item(8, "Riso vialone nano", "basil pesto, smoked ricotta & pine nuts risotto", "main", 0,16));
+        item.add(new Item(9, "Gnocchi di patate", "braised duck, porcini mushroom & pecorino pepata", "main", 0,16));
+        item.add(new Item(10, "Polenta frittata", "crunchy rosemary chips", "side", 0, 9));
+        item.add(new Item(11, "Panacotta", "yoghurt, rhubarb & white chocolate", "dessert", 0, 14));
+        item.add(new Item(12, "Coke", "", "drink", 0, 2.5));
 
         return item;
     }

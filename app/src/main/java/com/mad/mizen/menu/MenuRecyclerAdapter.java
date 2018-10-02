@@ -64,6 +64,11 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
         notifyDataSetChanged();
     }
 
+    public void updateFilter(List<Item> items) {
+        this.items = items;
+        notifyDataSetChanged();
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
         private TextView description;

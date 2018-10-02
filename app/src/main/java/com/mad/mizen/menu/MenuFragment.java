@@ -6,13 +6,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.TabLayout.OnTabSelectedListener;
 import android.support.design.widget.TabLayout.Tab;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +31,13 @@ public class MenuFragment extends Fragment {
     @Inject
     ViewModelProvider.Factory viewModelFactory;
     MenuViewModel viewModel;
+    List<Item> items;
 
     private RecyclerView recyclerView;
+    private TabLayout tabLayout;
+    private MenuRecyclerAdapter adapter;
+
+    private String category = "all";
 
     public MenuFragment() { }
 
@@ -44,36 +49,7 @@ public class MenuFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycler_view);
 
-        TabLayout tabLayout = view.findViewById(R.id.tab_layout);
-
-        tabLayout.addOnTabSelectedListener(new OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(Tab tab) {
-                // TODO: Send info to fragment.
-
-                if (tab.getText().equals("Entree")) {
-                    viewModel.filterCategory("entree");
-                } else if (tab.getText().equals("Sides")) {
-                    viewModel.filterCategory("sides");
-                } else if (tab.getText().equals("Main")) {
-                    viewModel.filterCategory("main");
-                } else if (tab.getText().equals("Desserts")) {
-                    viewModel.filterCategory("dessert");
-                } else if (tab.getText().equals("Drinks")) {
-                    viewModel.filterCategory("drinks");
-                }
-            }
-
-            @Override
-            public void onTabUnselected(Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(Tab tab) {
-
-            }
-        });
+        tabLayout = view.findViewById(R.id.tab_layout);
 
         // Inflate the layout for this fragment
         return view;
@@ -83,8 +59,51 @@ public class MenuFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        adapter = new MenuRecyclerAdapter(getContext(), new ArrayList<>());
+
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+        recyclerView.setLayoutManager(layoutManager);
+
         this.configureDagger();
         this.configureViewModel();
+
+        tabLayout.addOnTabSelectedListener(new OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(Tab tab) {
+
+                int currentTab = tab.getPosition();
+
+                switch (currentTab) {
+                    case 0:
+                        category = "all";
+                    case 1:
+                        category = "entree";
+                        break;
+                    case 2:
+                        category = "side";
+                        break;
+                    case 3:
+                        category = "main";
+                        break;
+                    case 4:
+                        category = "dessert";
+                        break;
+                    case 5:
+                        category = "drink";
+                        break;
+                }
+
+                filterMenu(category);
+            }
+
+            @Override
+            public void onTabUnselected(Tab tab) { }
+
+            @Override
+            public void onTabReselected(Tab tab) { }
+        });
     }
 
     private void configureDagger() {
@@ -94,30 +113,35 @@ public class MenuFragment extends Fragment {
     private void configureViewModel() {
         viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(MenuViewModel.class);
+
         viewModel.init();
-        viewModel.getItems().observe(this, this::updateUI);
+
+        viewModel.getItems().observe(this, this::updateItems);
     }
 
-    private void updateUI(List<Item> items) {
+    private void updateItems(List<Item> items) {
         if (items != null) {
-            setupMenuAdapter(items);
+            this.items = items;
+
+            filterMenu(category);
         }
     }
 
-    private void setupMenuAdapter(List<Item> items) {
+    private void filterMenu(String category) {
+        List<Item> filteredItems = new ArrayList<>();
 
-        MenuRecyclerAdapter adapter = new MenuRecyclerAdapter(getContext(), new ArrayList<>());
+        if (!category.equals("all")){
+            for (Item i : items) {
+                if (i.getCategory().equals(category)) {
+                    filteredItems.add(i);
+                }
+            }
+            adapter.updateFilter(filteredItems);
+        } else {
+            adapter.updateFilter(items);
+        }
 
-        recyclerView.setAdapter(adapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-
-        recyclerView.setLayoutManager(layoutManager);
-
-        adapter.addItems(items);
     }
-
-
-
 
     @Override
     public void onAttach(Context context) {

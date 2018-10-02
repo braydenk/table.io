@@ -12,6 +12,9 @@ import javax.inject.Singleton;
 @Singleton
 public class ItemRepository {
 
+    @SuppressWarnings("unused")
+    private static final String TAG = ItemRepository.class.getSimpleName();
+
     private final ItemDao itemDao;
     private final Executor executor;
 
