@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -106,6 +107,14 @@ public class OrderFragment extends Fragment {
             String totalPriceString = format.format(total);
 
             totalPriceTextView.setText(totalPriceString);
+
+            if (orderedItems.size() > 0) {
+                orderButton.setEnabled(true);
+                orderButton.setBackgroundColor(getResources().getColor(R.color.button));
+            } else {
+                orderButton.setEnabled(false);
+                orderButton.setBackgroundColor(Color.GRAY);
+            }
         }
     }
 
