@@ -5,6 +5,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.Relation;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,8 +16,6 @@ public class Order {
     @PrimaryKey
     private int orderId;
 
-    private int tableId;
-
     @Ignore
     private List<Item> items;
 
@@ -25,12 +24,9 @@ public class Order {
 
     public Order(int orderId, int status, double totalPrice) {
         this.orderId = orderId;
+        this.items = new ArrayList<>();
         this.status = status;
         this.totalPrice = totalPrice;
-    }
-
-    public int getTableId() {
-        return tableId;
     }
 
     public double getTotalPrice() {
@@ -47,10 +43,6 @@ public class Order {
 
     public List<Item> getItems() {
         return items;
-    }
-
-    public void setTableId(int tableId) {
-        this.tableId = tableId;
     }
 
     public void setItems(List<Item> items) {

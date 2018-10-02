@@ -17,6 +17,8 @@ public class Item {
     private int quantity;
     private double price;
 
+    private boolean isOrdered;
+
     public Item(int itemId, String name, String description, String category, int quantity, double price) {
         this.itemId = itemId;
         this.name = name;
@@ -49,6 +51,10 @@ public class Item {
     public int getItemId() {
         return itemId;
     }
+
+    public boolean getOrdered() { return isOrdered; }
+
+    public void setIsOrdered(boolean isOrdered) { this.isOrdered = isOrdered; }
 
     public void setName(String name) {
         this.name = name;

@@ -2,6 +2,7 @@ package com.mad.mizen.order;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
+import android.util.Log;
 import com.mad.mizen.data.models.Item;
 import com.mad.mizen.data.models.Order;
 import com.mad.mizen.data.source.ItemRepository;
@@ -14,7 +15,7 @@ public class OrderViewModel extends ViewModel {
     @SuppressWarnings("unused")
     private static final String TAG = MenuViewModel.class.getSimpleName();
 
-    private LiveData<Order> order;
+    private LiveData<List<Item>> orderedItems;
     private ItemRepository itemRepo;
 
     @Inject
@@ -23,12 +24,12 @@ public class OrderViewModel extends ViewModel {
     }
 
     public void init() {
-        if (this.order != null) {
+        if (this.orderedItems != null) {
             return;
         }
 
-        order = itemRepo.getOrder();
+        orderedItems = itemRepo.getOrderedItems();
     }
 
-    public LiveData<Order> getOrder() { return this.order; }
+    public LiveData<List<Item>> getOrder() { return this.orderedItems; }
 }

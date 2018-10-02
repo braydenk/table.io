@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
 import com.mad.mizen.data.models.Order;
+import java.util.List;
 
 public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdapter.ViewHolder> {
 
@@ -18,11 +19,11 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
     private static final String TAG = OrderRecyclerAdapter.class.getSimpleName();
 
     private Context context;
-    private Order order;
+    private List<Item> orderedItems;
 
-    OrderRecyclerAdapter(Context context, Order order) {
+    OrderRecyclerAdapter(Context context, List<Item> orderedItems) {
         this.context = context;
-        this.order = order;
+        this.orderedItems = orderedItems;
     }
 
     @NonNull
@@ -35,21 +36,26 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
     @Override
     public void onBindViewHolder(@NonNull OrderRecyclerAdapter.ViewHolder holder, int position) {
-        Item item = order.getItems().get(position);
 
-        holder.itemQuantity.setText(item.getQuantity());
+        Item item = orderedItems.get(position);
+
+        // TODO: Change to String format
+        holder.itemQuantity.setText(Integer.toString(item.getQuantity()));
         holder.itemName.setText(item.getName());
 
-        Log.d(TAG, "onBindViewHolder: " + item.getName());
     }
 
     @Override
     public int getItemCount() {
-        return -1;
+        if (orderedItems == null) {
+            return 0;
+        }
+
+        return orderedItems.size();
     }
 
-    public void updateOrder(Order order) {
-        this.order = order;
+    public void updateOrder(List<Item> orderedItems) {
+        this.orderedItems = orderedItems;
         notifyDataSetChanged();
     }
 

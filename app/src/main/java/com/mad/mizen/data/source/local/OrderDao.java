@@ -12,8 +12,11 @@ import java.util.List;
 @Dao
 public interface OrderDao {
 
-    @Query("SELECT * FROM `Order`")
-    LiveData<Order> loadOrder();
+    @Query("SELECT * FROM `Order` WHERE orderId = :id")
+    LiveData<Order> getOrder(int id);
+
+    @Query("SELECT * FROM Item")
+    LiveData<List<Item>> getItems();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void createOrder(Order order);

@@ -14,8 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.mad.mizen.R;
-import com.mad.mizen.data.models.Order;
+import com.mad.mizen.data.models.Item;
 import dagger.android.support.AndroidSupportInjection;
+import java.util.ArrayList;
+import java.util.List;
 import javax.inject.Inject;
 
 public class OrderFragment extends Fragment {
@@ -49,7 +51,7 @@ public class OrderFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        adapter = new OrderRecyclerAdapter(getContext(), null);
+        adapter = new OrderRecyclerAdapter(getContext(), new ArrayList<>());
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 
@@ -69,10 +71,10 @@ public class OrderFragment extends Fragment {
         viewModel.getOrder().observe(this, this::updateOrder);
     }
 
-    private void updateOrder(Order order) {
-        if (order != null) {
-            Log.d(TAG, "updateOrder: called");
-            adapter.updateOrder(order);
+    private void updateOrder(List<Item> orderedItems) {
+        if (orderedItems != null) {
+            Log.d(TAG, "updateOrder: called" );
+            adapter.updateOrder(orderedItems);
         }
     }
 

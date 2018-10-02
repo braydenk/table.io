@@ -43,6 +43,6 @@ public class AppModule {
     @Provides
     @Singleton
     ItemRepository provideUserRepository(ItemDao itemDao, OrderDao orderDao, Executor executor) {
-        return new ItemRepository(itemDao, orderDao, executor);
+        return new ItemRepository(itemDao, executor);
     }
 }
