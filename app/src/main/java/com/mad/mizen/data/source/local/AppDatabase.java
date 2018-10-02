@@ -29,5 +29,6 @@ public abstract class AppDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
+    // TODO: This is also not being used.
     public static void destroyInstance() { INSTANCE = null; }
 }

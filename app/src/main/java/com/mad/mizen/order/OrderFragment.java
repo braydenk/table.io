@@ -10,17 +10,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import com.mad.mizen.R;
-import com.mad.mizen.data.models.Item;
-import com.mad.mizen.menu.MenuViewModel;
+import com.mad.mizen.data.models.Order;
 import dagger.android.support.AndroidSupportInjection;
-import java.util.List;
 import javax.inject.Inject;
 
 public class OrderFragment extends Fragment {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
+
+    OrderViewModel viewModel;
+
+    TextView textView;
 
     public OrderFragment() {}
 
@@ -29,6 +32,8 @@ public class OrderFragment extends Fragment {
             Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.order_fragment, container, false);
+
+        textView = view.findViewById(R.id.order_item_name);
 
         // Inflate the layout for this fragment
         return view;
@@ -47,13 +52,14 @@ public class OrderFragment extends Fragment {
     }
 
     private void configureViewModel() {
-        OrderViewModel viewModel = ViewModelProviders.of(this, viewModelFactory)
-                .get(OrderViewModel.class);
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(OrderViewModel.class);
+        viewModel.init();
+        viewModel.getOrder().observe(this, this::updateOrder);
     }
 
-    private void updateUI(List<Item> items) {
-        if (items != null) {
-            // TODO: Some UI stuff
+    private void updateOrder(Order order) {
+        if (order != null) {
+            textView.setText(order.getItems().getName());
         }
     }
 

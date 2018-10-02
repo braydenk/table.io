@@ -2,6 +2,7 @@ package com.mad.mizen.data.source;
 
 import android.arch.lifecycle.LiveData;
 import com.mad.mizen.data.models.Item;
+import com.mad.mizen.data.models.Order;
 import com.mad.mizen.data.source.local.ItemDao;
 import com.mad.mizen.data.source.local.OrderDao;
 import com.mad.mizen.data.source.remote.ItemsRemoteDataSource;
@@ -33,12 +34,13 @@ public class ItemRepository {
         return itemDao.loadAllItems();
     }
 
-    public LiveData<List<Item>> getOrder() {
+    public LiveData<Order> getOrder() {
         return orderDao.loadOrder();
     }
 
     public void addItemToOrder(Item item) {
-        executor.execute(() -> orderDao.saveItemToOrder(item));
+        Order order = new Order(0, item, 0, 16);
+        executor.execute(() -> orderDao.createOrder(order));
     }
 
     private void refreshItems() {

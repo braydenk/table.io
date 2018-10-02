@@ -5,15 +5,14 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
-import com.mad.mizen.data.models.Item;
-import java.util.List;
+import com.mad.mizen.data.models.Order;
 
 @Dao
 public interface OrderDao {
 
-    @Query("SELECT * FROM item")
-    LiveData<List<Item>> loadOrder();
+    @Query("SELECT * FROM `Order`")
+    LiveData<Order> loadOrder();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void saveItemToOrder(Item item);
+    void createOrder(Order order);
 }
