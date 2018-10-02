@@ -61,6 +61,9 @@ dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.8.4'
 
+    // Stripe
+    implementation 'com.stripe:stripe-android:6.1.2'
+
 
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
