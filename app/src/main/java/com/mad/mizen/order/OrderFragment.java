@@ -3,18 +3,20 @@ package com.mad.mizen.order;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
+import com.mad.mizen.pay.PaymentActivity;
 import dagger.android.support.AndroidSupportInjection;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,8 @@ public class OrderFragment extends Fragment {
     RecyclerView recyclerView;
     OrderRecyclerAdapter adapter;
 
+    Button orderButton;
+
     public OrderFragment() {}
 
     @Override
@@ -42,6 +46,8 @@ public class OrderFragment extends Fragment {
         View view = inflater.inflate(R.layout.order_fragment, container, false);
 
         recyclerView = view.findViewById(R.id.order_recycler_view);
+
+        orderButton = view.findViewById(R.id.order_button);
 
         // Inflate the layout for this fragment
         return view;
@@ -57,8 +63,20 @@ public class OrderFragment extends Fragment {
 
         recyclerView.setLayoutManager(layoutManager);
 
+
         this.configureDagger();
         this.configureViewModel();
+
+        orderButton.setOnClickListener((View view) -> {
+
+            if (orderButton.getText().toString().equals("Order")) {
+                orderButton.setText(R.string.pay_now);
+            } else {
+                Intent intent = new Intent(getActivity(), PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void configureDagger() {
@@ -73,7 +91,6 @@ public class OrderFragment extends Fragment {
 
     private void updateOrder(List<Item> orderedItems) {
         if (orderedItems != null) {
-            Log.d(TAG, "updateOrder: added");
             adapter.updateOrder(orderedItems);
         }
     }
