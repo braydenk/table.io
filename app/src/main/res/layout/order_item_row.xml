@@ -2,61 +2,68 @@
 <android.support.constraint.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  android:layout_gravity="top|center">
+  android:layout_height="40dp">
 
   <TextView
     android:id="@+id/order_item_quantity"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:text="@string/default_text"
+    android:textColor="@color/colorPrimary"
+    app:layout_constraintBottom_toBottomOf="@+id/order_item_name"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.014"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/order_item_name"
+    app:layout_constraintVertical_bias="0.0"/>
+
+  <TextView
+    android:id="@+id/order_item_name"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:text="@string/default_text"
     android:textColor="@color/colorPrimary"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.014"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0"/>
-
-  <TextView
-    android:id="@+id/order_item_name"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    android:text="@string/default_text"
-    app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toStartOf="@+id/order_item_price"
-    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintHorizontal_bias="0.584"
     app:layout_constraintStart_toEndOf="@+id/order_item_quantity"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0"
-    android:textColor="@color/colorPrimary"/>
+    app:layout_constraintVertical_bias="0.523"/>
 
   <TextView
     android:id="@+id/order_item_price"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+
+    android:layout_marginEnd="8dp"
+    android:text="@string/default_text"
+    android:textColor="@color/colorPrimary"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/close_btn"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.523"/>
+  <Button
+    android:id="@+id/close_btn"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
-    android:foregroundGravity="right"
-    android:gravity="right"
-    android:text="@string/default_text"
+    android:background="@android:color/transparent"
+    android:foregroundGravity="center"
+    android:text="@string/x"
+    android:textAllCaps="false"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.985"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0"
-    android:textColor="@color/colorPrimary"/>
+    app:layout_constraintTop_toTopOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
