@@ -41,8 +41,8 @@ public class ItemRepository {
         return itemDao.getOrderedItems();
     }
 
-    public void updateItemOrdered(int itemId) {
-        executor.execute(() -> itemDao.updateItemOrdered(itemId));
+    public void updateItemOrdered(int itemId, int itemQuantity) {
+        executor.execute(() -> itemDao.updateItemOrdered(itemId, itemQuantity));
     }
 
 
