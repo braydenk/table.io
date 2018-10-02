@@ -48,9 +48,7 @@ public class OrderFragment extends Fragment {
         View view = inflater.inflate(R.layout.order_fragment, container, false);
 
         recyclerView = view.findViewById(R.id.order_recycler_view);
-
         orderButton = view.findViewById(R.id.order_button);
-
         totalPriceTextView = view.findViewById(R.id.total_price);
 
         // Inflate the layout for this fragment
