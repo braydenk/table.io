@@ -79,5 +79,9 @@ public class Item {
     public void setItemId(int itemId) {
         this.itemId = itemId;
     }
+
+    public void incrementQuantity() { this.quantity++; }
+
+    public void decrementQuantity() { this.quantity--; }
 }
 

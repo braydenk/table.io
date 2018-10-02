@@ -53,7 +53,6 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
         holder.price.setText(itemPrice);
 
         holder.addBtn.setOnClickListener((View view) -> {
-            Log.d(TAG, "onBindViewHolder: clicked");
 
             Dialog dialog = new Dialog(context);
             dialog.setContentView(R.layout.item_popup);
@@ -71,6 +70,20 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
             dialogAddButton.setOnClickListener((View dialogView) -> {
                 menuFragment.addItemToOrder(item);
                 dialog.dismiss();
+            });
+
+            TextView currentAmount = dialog.findViewById(R.id.amount);
+
+            Button dialogIncreaseQuantityButton = dialog.findViewById(R.id.add_btn);
+            dialogIncreaseQuantityButton.setOnClickListener((View dialogView) -> {
+                item.incrementQuantity();
+                currentAmount.setText(Integer.toString(item.getQuantity()));
+            });
+
+            Button dialogDecreaseQuantityButton = dialog.findViewById(R.id.minus_btn);
+            dialogDecreaseQuantityButton.setOnClickListener((View dialogView) -> {
+                item.decrementQuantity();
+                currentAmount.setText(Integer.toString(item.getQuantity()));
             });
 
             dialog.show();
