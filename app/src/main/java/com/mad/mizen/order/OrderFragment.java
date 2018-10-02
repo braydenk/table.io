@@ -62,7 +62,7 @@ public class OrderFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        adapter = new OrderRecyclerAdapter(getContext(), new ArrayList<>());
+        adapter = new OrderRecyclerAdapter(getContext(), new ArrayList<>(), this);
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 
@@ -116,6 +116,10 @@ public class OrderFragment extends Fragment {
                 orderButton.setBackgroundColor(Color.GRAY);
             }
         }
+    }
+
+    public void removeItem(Item item) {
+        viewModel.removeItemFromOrder(item);
     }
 
     @Override

@@ -32,4 +32,8 @@ public class OrderViewModel extends ViewModel {
     }
 
     public LiveData<List<Item>> getOrder() { return this.orderedItems; }
+
+    public void removeItemFromOrder(Item item) {
+        itemRepo.updateItemOrdered(item.getItemId(), false, 0);
+    }
 }

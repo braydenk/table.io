@@ -17,8 +17,8 @@ public interface ItemDao {
     @Query("SELECT * FROM item WHERE isOrdered = 1")
     LiveData<List<Item>> getOrderedItems();
 
-    @Query("UPDATE Item SET isOrdered = 1, quantity = :quantity WHERE itemId = :id")
-    void updateItemOrdered(int id, int quantity);
+    @Query("UPDATE Item SET isOrdered = :isOrdered, quantity = :quantity WHERE itemId = :id")
+    void updateItemOrdered(int id, boolean isOrdered, int quantity);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void saveItems(List<Item> items);

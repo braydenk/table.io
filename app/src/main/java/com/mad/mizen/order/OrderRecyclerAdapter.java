@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
@@ -21,10 +22,12 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
     private Context context;
     private List<Item> orderedItems;
+    private OrderFragment orderFragment;
 
-    OrderRecyclerAdapter(Context context, List<Item> orderedItems) {
+    OrderRecyclerAdapter(Context context, List<Item> orderedItems, OrderFragment orderFragment) {
         this.context = context;
         this.orderedItems = orderedItems;
+        this.orderFragment = orderFragment;
     }
 
     @NonNull
@@ -48,6 +51,20 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
 
         holder.itemPrice.setText(itemPrice);
 
+        holder.removeItem.setOnClickListener((View view) -> removeItem(item));
+
+    }
+
+    private void removeItem(Item item) {
+        for (Item i : orderedItems) {
+            if (i.getItemId() == item.getItemId()) {
+                orderedItems.remove(i);
+                break;
+            }
+        }
+
+        orderFragment.removeItem(item);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -69,6 +86,7 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
         private TextView itemQuantity;
         private TextView itemName;
         private TextView itemPrice;
+        private Button removeItem;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -76,6 +94,7 @@ public class OrderRecyclerAdapter extends RecyclerView.Adapter<OrderRecyclerAdap
             itemQuantity = itemView.findViewById(R.id.order_item_quantity);
             itemName = itemView.findViewById(R.id.order_item_name);
             itemPrice = itemView.findViewById(R.id.order_item_price);
+            removeItem = itemView.findViewById(R.id.close_btn);
         }
     }
 }

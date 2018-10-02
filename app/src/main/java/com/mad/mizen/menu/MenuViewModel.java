@@ -34,6 +34,6 @@ public class MenuViewModel extends ViewModel {
     }
 
     public void addItemToOrder(Item item) {
-        itemRepo.updateItemOrdered(item.getItemId(), item.getQuantity());
+        itemRepo.updateItemOrdered(item.getItemId(), true, item.getQuantity());
     }
 }
