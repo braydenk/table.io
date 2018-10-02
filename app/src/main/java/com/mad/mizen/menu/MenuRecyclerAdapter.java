@@ -3,22 +3,28 @@ package com.mad.mizen.menu;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import com.mad.mizen.MainActivity;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
 import java.util.List;
 
 public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapter.ViewHolder> {
 
+    @SuppressWarnings("unused")
+    private static final String TAG = MenuRecyclerAdapter.class.getSimpleName();
+
     private Context context;
     private List<Item> items;
-    private PopupWindow popupWindow;
-
 
     MenuRecyclerAdapter(Context context, List<Item> items) {
         this.context = context;
@@ -49,19 +55,28 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
         holder.description.setText(itemDescription);
         holder.price.setText(itemPrice);
 
-        holder.itemView.setOnClickListener((View view) -> {
-            // TODO: Some click handling.
+        holder.addBtn.setOnClickListener((View view) -> {
+            Log.d(TAG, "onBindViewHolder: clicked");
+
+            View popupView = LayoutInflater.from(context).inflate(R.layout.item_popup, null);
+            PopupWindow popupWindow = new PopupWindow(popupView, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+            Button btn = popupView.findViewById(R.id.close_popup_btn);
+
+            TextView popupName = popupView.findViewById(R.id.item_name);
+            TextView popupDescription = popupView.findViewById(R.id.item_description);
+
+            popupName.setText(itemName);
+            popupDescription.setText(itemDescription);
+
+            btn.setOnClickListener((View view1) -> popupWindow.dismiss());
+
+            popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
         });
     }
 
     @Override
     public int getItemCount() {
         return items.size();
-    }
-
-    public void addItems(List<Item> items) {
-        this.items = items;
-        notifyDataSetChanged();
     }
 
     public void updateFilter(List<Item> items) {
