@@ -46,6 +46,7 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
 
         String itemName = item.getName();
         String itemDescription = item.getDescription();
+        String itemQuantity = Integer.toString(item.getQuantity());
 
         NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
         String itemPrice = format.format(item.getPrice());
@@ -53,6 +54,11 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
         holder.name.setText(itemName);
         holder.description.setText(itemDescription);
         holder.price.setText(itemPrice);
+
+        if (item.getOrdered()) {
+            holder.addBtn.setText(R.string.change);
+            holder.addBtn.setBackgroundColor(context.getResources().getColor(R.color.highlights));
+        }
 
         holder.addBtn.setOnClickListener((View view) -> {
 
@@ -64,9 +70,14 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
 
             TextView popupName = dialog.findViewById(R.id.item_name);
             TextView popupDescription = dialog.findViewById(R.id.item_description);
+            TextView currentAmount = dialog.findViewById(R.id.amount);
+
+
 
             popupName.setText(itemName);
             popupDescription.setText(itemDescription);
+            currentAmount.setText(itemQuantity);
+
 
             Button dialogAddButton = dialog.findViewById(R.id.add_popup_btn);
             dialogAddButton.setOnClickListener((View dialogView) -> {
@@ -82,7 +93,6 @@ public class MenuRecyclerAdapter extends RecyclerView.Adapter<MenuRecyclerAdapte
                 dialogAddButton.setBackgroundColor(context.getResources().getColor(R.color.button));
             }
 
-            TextView currentAmount = dialog.findViewById(R.id.amount);
 
             Button dialogIncreaseQuantityButton = dialog.findViewById(R.id.add_btn);
             dialogIncreaseQuantityButton.setOnClickListener((View dialogView) -> {
