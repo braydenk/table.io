@@ -42,18 +42,18 @@
 
       <TextView
         android:id="@+id/textView2"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/enter_details"
         android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/divider3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986"/>
+        app:layout_constraintTop_toTopOf="parent"/>
       <Button
         android:id="@+id/pay_btn"
         android:layout_width="183dp"
@@ -174,12 +174,15 @@
         app:layout_constraintVertical_bias="0.219"/>
       <TextView
         android:id="@+id/textView7"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="Your Order"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/divider3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

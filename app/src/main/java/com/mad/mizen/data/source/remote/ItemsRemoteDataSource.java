@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Singleton;
 
-// TODO: Read this data from local file.
+/**
+ * Reads data from local assets folder and generates a list of menu items.
+ */
 @Singleton
 public class ItemsRemoteDataSource {
 
