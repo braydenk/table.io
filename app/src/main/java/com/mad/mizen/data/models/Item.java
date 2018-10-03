@@ -80,8 +80,14 @@ public class Item {
         this.itemId = itemId;
     }
 
-    public void incrementQuantity() { this.quantity++; }
+    public void incrementQuantity() {
+        this.quantity++;
+    }
 
-    public void decrementQuantity() { this.quantity--; }
+    public void decrementQuantity() {
+        if (this.quantity > 0) {
+            this.quantity--;
+        }
+    }
 }
 
