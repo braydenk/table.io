@@ -1,4 +1,4 @@
-package com.mad.mizen.di;
+package com.mad.mizen.di.modules;
 
 import android.app.Application;
 import android.arch.persistence.room.Room;

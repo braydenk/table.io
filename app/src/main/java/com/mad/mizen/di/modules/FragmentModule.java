@@ -1,4 +1,4 @@
-package com.mad.mizen.di;
+package com.mad.mizen.di.modules;
 
 import com.mad.mizen.menu.MenuFragment;
 import com.mad.mizen.order.OrderFragment;

@@ -1,4 +1,4 @@
-package com.mad.mizen;
+package com.mad.mizen.main;
 
 public class MainActivityViewModel {
 

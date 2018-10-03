@@ -8,6 +8,9 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 import javax.inject.Inject;
 
+/**
+ * Entry point for the application. Sets up our DI and provides app context.
+ */
 public class App extends Application implements HasActivityInjector {
 
     @Inject
@@ -26,8 +29,6 @@ public class App extends Application implements HasActivityInjector {
     public DispatchingAndroidInjector<Activity> activityInjector() {
         return dispatchingAndroidInjector;
     }
-
-    // ---
 
     private void initDagger(){
         DaggerAppComponent.builder().application(this).build().inject(this);

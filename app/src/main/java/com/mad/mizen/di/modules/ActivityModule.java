@@ -1,6 +1,6 @@
-package com.mad.mizen.di;
+package com.mad.mizen.di.modules;
 
-import com.mad.mizen.MainActivity;
+import com.mad.mizen.main.MainActivity;
 import com.mad.mizen.pay.PaymentActivity;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

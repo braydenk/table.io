@@ -1,4 +1,4 @@
-package com.mad.mizen;
+package com.mad.mizen.main;
 
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+import com.mad.mizen.R;
 import com.mad.mizen.menu.MenuFragment;
 import dagger.android.AndroidInjection;
 import dagger.android.DispatchingAndroidInjector;

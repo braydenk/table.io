@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.mad.mizen.MainActivity;
+import com.mad.mizen.main.MainActivity;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
 import com.stripe.android.model.Card;
@@ -31,17 +31,14 @@ public class PaymentActivity extends AppCompatActivity {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
-
-    private double total;
-
     PayViewModel viewModel;
-    Button payBtn;
 
     RecyclerView recyclerView;
     PaymentRecyclerAdapter adapter;
+    Button payBtn;
 
+    // Stripe card model
     Card card;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +47,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         payBtn = findViewById(R.id.pay_btn);
 
-        total = getIntent().getDoubleExtra("TOTAL", 0);
+        double total = getIntent().getDoubleExtra("TOTAL", 0);
 
         NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
         String totalPriceString = "PAY: " + format.format(total);
