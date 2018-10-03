@@ -1,9 +1,8 @@
-package com.mad.mizen.di.modules;
+package com.mad.mizen.di;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import com.mad.mizen.FactoryViewModel;
-import com.mad.mizen.di.key.ViewModelKey;
 import com.mad.mizen.menu.MenuViewModel;
 import com.mad.mizen.order.OrderViewModel;
 import com.mad.mizen.pay.PayViewModel;

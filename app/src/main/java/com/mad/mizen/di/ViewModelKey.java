@@ -1,4 +1,4 @@
-package com.mad.mizen.di.key;
+package com.mad.mizen.di;
 
 import android.arch.lifecycle.ViewModel;
 import dagger.MapKey;

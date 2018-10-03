@@ -1,11 +1,8 @@
-package com.mad.mizen.di.component;
+package com.mad.mizen.di;
 
 
 import android.app.Application;
 import com.mad.mizen.App;
-import com.mad.mizen.di.modules.ActivityModule;
-import com.mad.mizen.di.modules.AppModule;
-import com.mad.mizen.di.modules.FragmentModule;
 import dagger.BindsInstance;
 import dagger.Component;
 import javax.inject.Singleton;

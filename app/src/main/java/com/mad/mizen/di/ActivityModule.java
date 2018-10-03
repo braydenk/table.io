@@ -1,4 +1,4 @@
-package com.mad.mizen.di.modules;
+package com.mad.mizen.di;
 
 import com.mad.mizen.main.MainActivity;
 import com.mad.mizen.pay.PaymentActivity;
