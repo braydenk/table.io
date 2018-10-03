@@ -2,14 +2,21 @@ package com.mad.mizen.pay;
 
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.mad.mizen.MainActivity;
 import com.mad.mizen.R;
 import com.mad.mizen.data.models.Item;
 import com.stripe.android.model.Card;
@@ -62,6 +69,48 @@ public class PaymentActivity extends AppCompatActivity {
 
         configureDagger();
         configureViewModel();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitleTextColor(Color.WHITE);
+
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.back));
+        toolbar.setNavigationOnClickListener((View view) -> {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+
+        //setSupportActionBar(toolbar);
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.call_staff:
+                // TODO: Change this to payment activity
+                Snackbar.make(findViewById(R.id.main_activity), "A staff member will be with you shortly", Snackbar.LENGTH_LONG).show();
+                break;
+            default:
+                break;
+        }
+
+        return true;
     }
 
     private void configureDagger() {

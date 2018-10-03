@@ -42,7 +42,7 @@ public class OrderFragment extends Fragment {
     Button orderButton;
     TextView totalPriceTextView;
 
-    private double total = 0;
+    private double total;
 
     public OrderFragment() {}
 
@@ -101,6 +101,7 @@ public class OrderFragment extends Fragment {
     private void updateOrder(List<Item> orderedItems) {
         if (orderedItems != null) {
             adapter.updateOrder(orderedItems);
+            total = 0;
 
             for (Item i : orderedItems) {
                 total += i.getPrice() * i.getQuantity();
