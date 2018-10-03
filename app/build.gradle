@@ -64,6 +64,8 @@ dependencies {
     // Stripe
     implementation 'com.stripe:stripe-android:6.1.2'
 
+    // Braintree
+    implementation 'com.braintreepayments.api:drop-in:3.6.1'
 
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'

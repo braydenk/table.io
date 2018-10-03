@@ -34,4 +34,13 @@
 
   <string name="x">x</string>
 
+  <string name="payment">Payment</string>
+  <string name="enter_details">Enter Your Card Details</string>
+
+  <string name="card_number">Card Number: </string>
+  <string name="expiry">Expiry: </string>
+  <string name="cvc">CVC: </string>
+
+  <string name="card_error">error in processing your payment. Please check your details.</string>
+
 </resources>

@@ -42,6 +42,8 @@ public class OrderFragment extends Fragment {
     Button orderButton;
     TextView totalPriceTextView;
 
+    private double total = 0;
+
     public OrderFragment() {}
 
     @Override
@@ -78,6 +80,8 @@ public class OrderFragment extends Fragment {
                 orderButton.setText(R.string.pay_now);
             } else {
                 Intent intent = new Intent(getActivity(), PaymentActivity.class);
+                intent.putExtra("TOTAL", total);
+
                 startActivity(intent);
             }
         });
@@ -98,7 +102,6 @@ public class OrderFragment extends Fragment {
         if (orderedItems != null) {
             adapter.updateOrder(orderedItems);
 
-            double total = 0;
             for (Item i : orderedItems) {
                 total += i.getPrice() * i.getQuantity();
             }
