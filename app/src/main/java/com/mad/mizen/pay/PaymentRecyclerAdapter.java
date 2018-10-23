@@ -42,7 +42,6 @@ public class PaymentRecyclerAdapter extends RecyclerView.Adapter<PaymentRecycler
 
         holder.itemPrice.setText(itemPrice);
 
-
         holder.removeItem.setEnabled(false);
         holder.removeItem.setVisibility(View.INVISIBLE);
     }

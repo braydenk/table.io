@@ -6,6 +6,7 @@ import com.mad.mizen.data.source.ItemRepository;
 import com.mad.mizen.data.source.local.AppDatabase;
 import com.mad.mizen.data.source.local.ItemDao;
 import com.mad.mizen.data.source.local.OrderDao;
+import com.mad.mizen.data.source.remote.Api;
 import dagger.Module;
 import dagger.Provides;
 import dagger.android.AndroidInjectionModule;
@@ -42,7 +43,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    ItemRepository provideUserRepository(ItemDao itemDao, OrderDao orderDao, Executor executor) {
-        return new ItemRepository(itemDao, executor);
+    ItemRepository provideUserRepository(ItemDao itemDao, OrderDao orderDao, Api api, Executor executor) {
+        return new ItemRepository(itemDao, api, executor);
     }
 }
